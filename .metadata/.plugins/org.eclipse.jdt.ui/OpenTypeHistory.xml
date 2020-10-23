@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=covid_app/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.covid_app.bean{DaoObjectMySql.java[DaoObjectMySql" modifiers="1" timestamp="1601910256000"/>
+<typeInfo handle="=covidapp_postgres/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_postgres.model{LoginPostgres.java[LoginPostgres" modifiers="1" timestamp="1601910037000"/>
+<typeInfo handle="=CMAPP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.cmapp.control{LoginController.java[LoginController" modifiers="1" timestamp="1602789784000"/>
+</typeInfoHistroy>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+	<title><ui:insert name="head"></ui:insert></title>
+		<meta http-equiv="Content-Type"
+			content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Cache-Control"
+			content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../css/template.css" />
+		<link rel="shortcut icon" href="../images/favicon.ico" />
+	</h:head>
+	
+	<h:body >
+	<h:form>
+		<ui:include src="/WEB-INF/templates/status.xhtml"></ui:include>
+		<p:ajaxStatus onstart="showStatus.show()"	oncomplete="showStatus.hide()" />
+	</h:form>
+<div id="contenedor">
+			<div id="header">
+				<div id="logo">
+       					<div id="logo_app">            
+               			</div>
+                       	<div id="titulo_app">            
+                               <ui:insert name="header">
+                                  COVID MUESTRA APP
+                               </ui:insert>
+               			</div>                    
+       			</div>
+			</div>
+
+			<div id="seccionComfaboy" style="padding-bottom: 40px;" align="center">
+				<div id="contenido">
+				<div id="componentePrincipal">
+					<div id="componente" >
+						<div >
+							<h2>
+								<ui:insert name="tituloFuncionalidad"></ui:insert>
+							</h2>
+							
+								<ui:insert name="body"></ui:insert>
+							<br/>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+        <div align="center" id="footer"><br /><br />USTA 2020</div>
+	</h:body>
+</f:view>
+</html>

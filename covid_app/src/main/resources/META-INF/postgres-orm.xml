@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_2.xsd">
+	
+	
+	<named-query name="City.FIND_ALL">
+		<query>
+			SELECT c
+			FROM  City c
+		</query>
+	</named-query>
+
+	<named-query name="Decree.FIND_ALL">
+		<query>
+			SELECT d FROM Decree d
+		</query>
+	</named-query>
+
+	<named-query name="Departament.FIND_ALL">
+		<query>
+			SELECT dp FROM Departament dp
+		</query>
+	</named-query>
+
+	<named-query name="Company.FIND_ALL">
+		<query>
+			SELECT cp
+			FROM Company cp
+		</query>
+	</named-query>
+
+
+	<named-query name="Disease.FIND_ALL">
+		<query>
+			SELECT en
+			FROM Disease en
+		</query>
+	</named-query>
+
+	<named-query name="HistoricoDecree.FIND_ALL">
+		<query>
+			SELECT hd
+			FROM HistoricoDecree hd
+		</query>
+	</named-query>
+
+	<named-query name="Login.FIND_ALL">
+		<query>
+			SELECT l
+			FROM LoginPostgres l
+		</query>
+	</named-query>
+
+	<named-query name="Person.FIND_ALL">
+		<query>
+		 	SELECT p
+			FROM Person p
+		</query>
+	</named-query>
+
+	<named-query name="Register.FIND_ALL">
+		<query>
+		SELECT r
+			FROM Register r
+		</query>
+	</named-query>
+	
+		<named-query name="TypeDocument.FIND_ALL">
+		<query>
+		SELECT t
+			FROM TypeDocument t
+		</query>
+	</named-query>
+	
+	<named-query name="LoginPostgres.FIND_USER_CREDENTIALS_POSTGRESQL">
+		<query>
+			SELECT l
+			FROM LoginPostgres l
+			WHERE l.user = :us
+			AND l.password = :ps
+		</query>
+	</named-query>
+	
+	<named-query name="LoginPostgres.FIND_USER">
+		<query>
+			SELECT l
+			FROM  LoginPostgres l
+			WHERE l.user = :us
+		</query>
+	</named-query>
+
+</entity-mappings>

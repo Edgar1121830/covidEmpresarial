@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete 4 elements from project &apos;covidapp_mysql&apos;&#x0A;- Original project: &apos;covidapp_mysql&apos;&#x0A;- Original elements:&#x0A;     com.covidapp_mysql.model.Ejemplo.java&#x0A;     com.covidapp_mysql.model.OtraClase.java&#x0A;     covidapp_mysql/src/main/java/com.paquete&#x0A;     com.paquete.ClaseDos.java" description="Delete elements" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_mysql.model{Ejemplo.java" element2="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_mysql.model{OtraClase.java" element3="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.paquete" elements="3" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1598629321687" subPackages="false" version="1.0"/>
+</session>

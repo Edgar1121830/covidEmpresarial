@@ -1,0 +1,77 @@
+@charset "utf-8";
+/* CSS Document */
+
+#logo{
+	background-image:url(../images/logo1.png); 
+	background-repeat:no-repeat;
+	width:800px;
+	height:85px;
+}
+
+#header{
+	background-image:url(../images/header-bg.png);
+}
+
+#titulo_app{
+	font-size:16px; 
+	font-weight:bold; 
+	text-shadow: 0.1em 0.1em 0.2em #333;
+	position:absolute;
+	left:430px;
+	top:35px;
+}
+
+#contenedor{
+	min-height: 100%;     
+    height: auto !important;     
+    height: 100%;     
+    margin: 0 auto -50px; /* el magin-bottom es el valor negativo de     
+    la altura del footer */ 
+}
+
+#footer{     
+    height: 50px;
+	background-image:url(../images/footer-bg.png); 	
+	background-repeat:repeat-x;
+	font-size:10px; 
+	font-weight:bold; 
+	text-shadow: 0.1em 0.1em 0.2em #F2F2F2;
+
+}
+
+html,body{
+	font-size:10px;
+	height: 100%;
+}
+
+.panel tr,
+.panel td {
+    border: none;  
+    border-style:hidden;
+	border-color:transparent;
+}
+.column{
+	font-size: 10px;
+	text-align: center;
+}
+.column2{
+	text-align: right;
+}
+.column3{
+	font-size: 10px;
+	text-align: left;
+}
+
+.upan{
+	border-style:hidden;
+	border-color:transparent;
+}
+
+.sell
+ {
+  height:117px 
+}
+.texto{
+	font-size: 12px;
+	font-weight: bold;
+}

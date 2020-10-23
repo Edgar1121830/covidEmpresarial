@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/conf-template.html">
+	
+	
+	<ui:define name="body">
+		<h:form>
+			<p:messages id="messages" globalOnly="true" autoUpdate="true" closable="true" 
+							showDetail="true" showSummary="true"></p:messages>
+			<div align="center">
+				<p:panel id="panelPrincipal" header="#{msg.appFail}" style="width: 800px">
+					<p:graphicImage url="/images/notuser.jpg" alt="Header"/>
+					<br/>
+					<f:facet name="foot">
+						<div align="center">
+						    <h:commandLink action="login.xhtml" style="color: RED">#{msg.linkLogin}</h:commandLink>
+						</div>
+					</f:facet>
+				</p:panel>
+			</div>
+		</h:form>
+	</ui:define>
+</ui:composition>

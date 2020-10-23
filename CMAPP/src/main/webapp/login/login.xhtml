@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/logintemplate.xhtml">
+	
+	
+	<ui:define name="body">
+		<h:form>
+			<p:messages id="messages" globalOnly="true" autoUpdate="true" closable="true"
+				showDetail="true" showSummary="true"/>
+				<br/><br/><br/><br/>
+				
+				<p:panel id="principal" header="#{msg.appLogin}" style="width:500px;">
+					<p:graphicImage url="/images/logo.png" width="100"/>
+					<br/>
+					<p:outputLabel value="#{msg.userLogin}" for="loginsu"/>
+					<p:inputText id="loginsu" value="#{login.user}" required="true" 
+							requiredMessage="#{msg.erroCampos}" label="#{msg.userLogin}"/>
+					<p:message for="loginsu"/>
+					<br/>
+					<p:outputLabel value="#{msg.password}" style="width:100%" for="pass"/>
+					<p:password id="pass" value="#{login.password}" required="true" 
+							requiredMessage="#{msg.erroCampos}" label="#{msg.password}"/> 
+					<p:message for="loginsu"/>
+					<br/>
+					<div align="center">
+						<p:commandButton value="#{msg.btnAcess}" action="#{login.acessCheck()}" ajax="false"/>
+					</div>
+					
+					<f:facet name="footer">
+						<div align="center">
+							<p:commandButton value="#{msg.btnForgotPas}" action="#{login.forgotPass()}" ajax="false"/>
+						</div>
+					</f:facet>
+				</p:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>
