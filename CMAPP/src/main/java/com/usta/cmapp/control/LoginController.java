@@ -26,6 +26,8 @@ public class LoginController implements Serializable {
 	public static final String USER_AUTENTICH = "user.app";
 
 	public static final String AUTH_KEY = "app.user.name";
+	
+
 
 	private Properties properties;// leer el archivo messages.properties.
 
@@ -62,21 +64,21 @@ public class LoginController implements Serializable {
 			Login login = servicesDaoMysql.searchUser(user, password, EnumDataBase.MYSQL.getId());
 			
 			if(login.getLoginID()>0) {
-				acces = "/pages/comun/principal";
-				
+				acces = "/pages/principal";
+				//FacesContext.getCurrentInstance().getExternalContext().redirect(acces);
 				//subir a session las variables
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-											.put(USER_AUTENTICH, login.getUser().trim());
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY,user);
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(USER_AUTENTICH, login.getUser().trim());
 				
 			}else if (login == null){
 				LoginPostgres lpos = new com.covidapp_postgres.model.LoginPostgres();
 
 				lpos = servicesDaoPostgres.searchUser(user, password, EnumDataBase.POSTGRESQL.getId());
 				
-				FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-											.put(USER_AUTENTICH, lpos.getUser().trim());
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(AUTH_KEY,user);
+				FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put(USER_AUTENTICH, lpos.getUser().trim());
 				
-				acces = "/pages/comun/principal";
+				acces = "/pages/principal";
 			} else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,
 						properties.getProperty("errorGeneral"), properties.getProperty("erroExitenciaUsuario")));
@@ -126,6 +128,8 @@ public class LoginController implements Serializable {
 			// TODO: handle exception
 		}
 	}
+	
+
 	
 	public String getUser() {
 		return user;

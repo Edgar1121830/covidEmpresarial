@@ -2,6 +2,7 @@ package com.usta.cmapp.control;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -23,7 +24,7 @@ import com.usta.cmapp.constants.EnumDataBase;
 import com.usta.cmapp.constants.EnumRhBlood;
 import com.usta.covid_app.service.ServicesDao;
 
-@ManagedBean(name = "principal")
+@ManagedBean(name = "prin")
 @SessionScoped
 public class PrincipalController implements Serializable{
 
@@ -32,20 +33,23 @@ public class PrincipalController implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	private Properties properties;
-	private String userAcces;
 	private final static String PAGE_PRINCIPAL = "../login/login.faces";
 	
+	private Properties properties;
+	private String usLoged;
+	private String userAcces;
 	private Person newPerson;
 	private List<TypeDocument> typesDocuments;
 	private List<City> listCities;
 	private List<EnumRhBlood> rhlist;
 	private TypeDocument documentType;
 	private City city;
+	private String phone;
 	
 	@EJB
 	private ServicesDao<Object> servicesDao;
+
+	
 	
 	/**
 	 * constructor class
@@ -60,6 +64,7 @@ public class PrincipalController implements Serializable{
 			documentType = new TypeDocument();
 			typesDocuments = new ArrayList<TypeDocument>();
 			listCities = new ArrayList<City>();
+			rhlist = new ArrayList<EnumRhBlood>();
 			chargeProperties();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -74,6 +79,7 @@ public class PrincipalController implements Serializable{
 			properties.load(PrincipalController.class.getResourceAsStream("messages.properties"));
 			userAcces = ((String) FacesContext.getCurrentInstance().getExternalContext()
 					.getSessionMap().get(LoginController.USER_AUTENTICH)).toUpperCase();
+			usLoged=((String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(LoginController.AUTH_KEY)).toUpperCase();
 		} catch (Exception e) {
 			FacesContext.getCurrentInstance().addMessage(null, 
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, properties.getProperty("errorGeneral")
@@ -90,8 +96,16 @@ public class PrincipalController implements Serializable{
 	@PostConstruct
 	public void chargeData() {
 		try {
-			typesDocuments.add((TypeDocument) servicesDao.findAll(documentType, EnumDataBase.MYSQL.getId()));
-			listCities.add((City) servicesDao.findAll(city, EnumDataBase.MYSQL.getId()));
+			List<Object> d = servicesDao.findAll(TypeDocument.class, EnumDataBase.MYSQL.getId());
+			for(Object o :d) {
+				typesDocuments.add((TypeDocument) o);
+			}
+			
+			List<Object> c =servicesDao.findAll(City.class, EnumDataBase.MYSQL.getId());
+			for(Object o :c) {
+				listCities.add((City)o);
+			}
+			
 			
 			rhlist.add(EnumRhBlood.ABPOS);
 			rhlist.add(EnumRhBlood.ABNEG);
@@ -108,7 +122,6 @@ public class PrincipalController implements Serializable{
 							, properties.getProperty("errorCargaPropiedades")));
 		}
 	}
-	
 	
 	/**
 	 * valida para hacer el paso a la siguiente pestania
@@ -137,7 +150,8 @@ public class PrincipalController implements Serializable{
 		if((newPerson.getDocument()!=null && !newPerson.getDocument().equals(""))
 				&& (newPerson.getFirstName()!=null && !newPerson.getFirstName().equals(""))
 				&& (newPerson.getLastName()!= null && !newPerson.getLastName().equals(""))
-				&& (newPerson.getBirthday()!=null && !newPerson.getBirthday().equals(""))) {
+				&& (newPerson.getBirthday()!=null && !newPerson.getBirthday().equals("")) 
+				&& (phone!=null && !phone.equals(""))) {
 				
 				Date today = new Date();
 				if(newPerson.getBirthday().before(today)) {
@@ -153,12 +167,14 @@ public class PrincipalController implements Serializable{
 		return flag;
 	}
 	
+	
 	/**
 	 * metodo que crea la persona desde el formulario
 	 */
 	public void createPerson() {
 		try {
 			if(validateDataPerson()) {
+				newPerson.setCellPhone(new BigDecimal(phone));
 				 servicesDao.create(newPerson, EnumDataBase.MYSQL.getId());
 				
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, properties.getProperty(""), properties.getProperty("")));
@@ -171,17 +187,20 @@ public class PrincipalController implements Serializable{
 	}
 	
 	
-	public void logut() {
-	
+	public String logut() {
+		
 		try {
-			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("principal");
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("prin");
+			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("pesoncontroller");
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(LoginController.USER_AUTENTICH);
 			FacesContext.getCurrentInstance().getExternalContext().redirect(PAGE_PRINCIPAL);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return  null;
 	}
-
+	
 	
 	/*setter and getter*/
 	public String getUserAcces() {
@@ -222,6 +241,38 @@ public class PrincipalController implements Serializable{
 
 	public void setRhlist(List<EnumRhBlood> rhlist) {
 		this.rhlist = rhlist;
+	}
+
+	public String getUsLoged() {
+		return usLoged;
+	}
+
+	public void setUsLoged(String usLoged) {
+		this.usLoged = usLoged;
+	}
+
+	public TypeDocument getDocumentType() {
+		return documentType;
+	}
+
+	public void setDocumentType(TypeDocument documentType) {
+		this.documentType = documentType;
+	}
+
+	public City getCity() {
+		return city;
+	}
+
+	public void setCity(City city) {
+		this.city = city;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	
 }

@@ -4,22 +4,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
-	<p:ajaxStatus
-		style="width:64px;height:64px;position:fixed;right:5px;bottom:5px">
-		<f:facet name="start">
-			<h:graphicImage url="/images/cargando.gif"/>
-		</f:facet>
-		<f:facet name="complete">
-			<h:outputText value="" />
-		</f:facet>
+
+	<p:ajaxStatus style="display:block;"> 
+	    <f:facet name="start">
+	        <p:graphicImage name="../../images/cargando.gif" />
+	    </f:facet>
 	</p:ajaxStatus>
-
-
-	<p:dialog header="#{msg['headreCharge']}" modal="true"
-		closable="false" widgetVar="showStatus" resizable="false">
-		<h:outputLabel value="#{msg['labelProceso']}" styleClass="texto"></h:outputLabel>
-		<h:panelGrid columns="2">
-			<h:graphicImage url="/images/cargando.gif"/><br />
+	
+	<p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+		<h:outputLabel value="#{msg.labelProceso}" styleClass="texto"></h:outputLabel>
+	    <h:panelGrid columns="2">
+			<h:graphicImage url="../../images/cargando.gif"/><br />
 		</h:panelGrid>
 	</p:dialog>
+	
 </ui:composition>

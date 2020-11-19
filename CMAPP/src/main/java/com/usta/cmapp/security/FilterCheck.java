@@ -8,6 +8,9 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.*;
+
+import com.usta.cmapp.control.LoginController;
 
 public class FilterCheck implements Filter{
 
@@ -21,7 +24,11 @@ public class FilterCheck implements Filter{
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		
+		if (((HttpServletRequest)request).getSession().getAttribute(LoginController.AUTH_KEY)==null){
+			((HttpServletResponse)response).sendRedirect("../login/login.faces");
+		}else{
+			chain.doFilter(request, response);
+		}	
 	}
 
 	@Override
