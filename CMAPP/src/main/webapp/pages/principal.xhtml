@@ -63,7 +63,39 @@
 									<p:commandButton value="#{msg.btnCreate}" actionListener="#{prin.createPerson()}" update="@form" ajax="false"/>
 								</div>
 							</div>
-							
+						</p:panel>
+					</p:tab>
+					<p:tab id="dataTemperature" title="#{msg.dataTemp}">
+						<p:panel id="personTemperature" header="#{msg.dateRegisyterTemp}" style="width:100%;no-border">
+							<div align="center">
+									<p:outputLabel value="#{msg.document}" for="doc"/>
+									<p:inputText id="doc" value="#{prin.newPerson.document}" styleClass="texto" style="witdh:150px;"/>
+									<p:outputLabel value="#{msg.disease}" for="ds"/>
+									<p:selectOneMenu id="ds" styleClass="texto" style="witdh:150px;" value="#{regis.registerPerson.diseaseID}">
+										<f:selectItems value="#{regis.listDisease}" var="dis" 
+												itemLabel="#{dis.description}" itemValue="#{dis.diseaseID}"></f:selectItems>
+									</p:selectOneMenu>
+									<p:outputLabel value="#{msg.company}" for="comp"/>
+									<p:selectOneMenu id="comp" styleClass="texto" style="witdh:150px;" value="#{regis.registerPerson.companyID}">
+										<f:selectItems value="#{regis.listCompany}" var="co" 
+												itemLabel="#{co.name}" itemValue="#{co.companyID}"></f:selectItems>
+									</p:selectOneMenu>
+									<div align="center">
+										<p:commandButton value="#{msg.btnSearch}" actionListener="#{regis.validatePerson()}" update="datareg" ajax="false"/>
+									</div>
+									<p:panel id="datareg" style="width:100%;no-border" visible="#{regis.visiblePanel}">
+										<p:outputLabel value="#{msg.weight}" for="wi"/>
+										<p:inputNumber id="wi" value="#{regis.personRegis.weight}"  style="witdh:150px;" styleClass="texto"/>
+										<p:outputLabel value="#{msg.temperature}" for="temp"/>
+										<p:inputNumber id="temp" value="#{regis.registerPerson.temperature}"  style="witdh:150px;" styleClass="texto"/>
+										<p:outputLabel value="#{msg.temperature}" for="temp"/>
+										<p:inputNumber id="temp" value="#{regis.registerPerson.temperature}"  style="witdh:150px;" styleClass="texto"/>
+										<div align="center">
+											<p:commandButton value="#{msg.btnAcess}" actionListener="#{regis.validatePerson()}" update="datareg" ajax="false"/>
+										</div>
+										
+									</p:panel>
+							</div>
 						</p:panel>
 					</p:tab>
 				</p:wizard>

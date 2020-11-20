@@ -106,4 +106,10 @@ public class DaoObjectPostgresql<T> implements IObjectQueryPostgres<T> {
 		return t;
 	}
 
+	@Override
+	public T searchPersonByDocument(String documento) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

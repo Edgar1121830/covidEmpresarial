@@ -1,0 +1,45 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/conf-template.xhtml">
+	<ui:define name="head"> :: SISED ::</ui:define>
+	<ui:define name="body">
+		<h:body>
+			<h:form id="form">
+				<p:growl id="msgs" showDetail="true" />
+				<p:messages id="messages" globalOnly="true" autoUpdate="true"
+					closable="true" showDetail="true" showSummary="true" />
+				<div align="center">
+					<br /> <br />
+					<h:outputLabel value="BIENVENIDO " />
+					#{prin.usName}<BR /> <br /> <br />
+
+					<p:panel visible="#{odontologo.show}" id="prinSelec" header="#{msg.hedarADMIn}">
+						<p:panelGrid columns="3" styleClass="panel" id="options">
+							<p:panel visible="#{prin.choose}">
+								<p:outputLabel value="#{msg.labelZenit}"/>
+								<h:commandLink id="doc" action="#{prin.page(1)}" title="#{msg.labelZenit}">
+									<p:graphicImage url="/images/docu.jpg" width="400" />
+								</h:commandLink>
+							</p:panel>
+							<p:panel visible="#{prin.chooseOdon}">
+								<p:outputLabel value="#{msg.labelOd}"/>
+								<h:commandLink id="odo" action="#{prin.page(2)}" title="#{msg.labelOd}">
+									<p:graphicImage url="/images/odn.jpg" width="400" />
+								</h:commandLink>
+							</p:panel>
+							<p:panel visible="#{prin.chooseEncues}">
+								<p:outputLabel value="#{msg.labelEncuest}"/>
+								<h:commandLink id="encs" action="#{prin.page(3)}" title="#{msg.labelEncuest}">
+									<p:graphicImage url="/images/odn.jpg" width="400" />
+								</h:commandLink>
+							</p:panel>
+						</p:panelGrid>
+					</p:panel>
+				</div>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+		<title><ui:insert name="head"></ui:insert></title>
+		<meta http-equiv="Content-Type"
+			content="text/html; charset=iso-8859-1" />
+		<meta http-equiv="Cache-Control"
+			content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../css/template.css" />
+		<link rel="shortcut icon" href="../images/favicon12.ico" />
+	</h:head>
+	
+	<h:body >
+	<h:form>
+<!-- 		<ui:include src="/WEB-INF/templates/status.xhtml"></ui:include> -->
+<!-- 		<p:ajaxStatus onstart="showStatus.show()"	oncomplete="showStatus.hide()" /> -->
+	</h:form>
+			<div id="contenedor">
+			<div id="header">
+				<div id="logo">
+                       	<div id="titulo_app">            
+                               <ui:insert name="header">
+                                    CMAPP COVID
+                               </ui:insert>
+               			</div>                    
+       			</div>
+			</div>
+
+			<div id="seccionComfaboy">
+				<div id="contenido">
+				<div id="componentePrincipal">
+					<div id="componente" >
+						<div >
+							<h2>
+								<ui:insert name="tituloFuncionalidad"></ui:insert>
+							</h2>
+								 <h:form>
+										<p:panelGrid styleClass="upan">
+											<p:row>
+												<p:column style="width:100%; padding: 0 0 0 0; align: center" colspan="100" styleClass="ui-widget-header">
+													<p:outputLabel value="SISTEMA DE TOMA DE MUESTRAS COVID" styleClass="texto"/>
+												</p:column>
+												<p:column style="width:50px; padding: 0 0 0 0;">
+													<p:commandButton value="#{msg.botonSalir}" icon="ui-icon-extlink" id="out" 
+													style="height:38px;" action="#{prin.logout()}" ajax="false"/>
+												</p:column>
+											</p:row>
+										</p:panelGrid> 
+								 </h:form>
+								<ui:insert name="body"></ui:insert>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+        <div align="center" id="footer"><br /><br />USTA 2020</div>
+	</h:body>
+</f:view>
+</html>

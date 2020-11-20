@@ -1,0 +1,26 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/conf-template.xhtml">
+  	<ui:define name="head">:: CMAPP ::</ui:define>
+	<ui:define name="body">
+		<h:body>
+			<h:form >
+			<p:messages id="messages" globalOnly="true" autoUpdate="true" closable="true" showDetail="true" showSummary="true"/>
+				<div align="center">
+					<h:outputLabel value="BIENVENIDO "/>#{principal.userAcces}<BR />
+					<h:outputLabel value="AL SISTEMA DE ADMINISTRACION DE EVENTOS"/>
+				</div>
+				
+						<p:panel id="personRegister" header="HOLA" style="width:100%;no-border">
+								<div align="center">
+									<p:commandButton value="#{msg.btnCreate}" actionListener="#{principal.createPerson()}" update="@form" ajax="false"/>
+								</div>
+							
+						</p:panel>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition> 

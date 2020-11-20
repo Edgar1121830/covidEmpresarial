@@ -1,0 +1,89 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/conf-template.xhtml">
+	<ui:define name="head"> :: CMAPP ::</ui:define>
+	<ui:define name="body">
+		<h:body>
+			<h:form id="form">
+				<p:messages id="messages" globalOnly="true" autoUpdate="true" closable="true" showDetail="true" showSummary="true"/>
+				<div align="center">
+					<h:outputLabel value="BIENVENIDO "/>#{prin.userAcces}<BR />
+					<h:outputLabel value="AL SISTEMA DE ADMINISTRACION DE EVENTOS"/>
+				</div>
+				
+				<p:wizard flowListener="#{prin.onFlowProcess()}">
+					<p:tab id="dataPerson" title="#{msg.dataPerson}">
+						<p:panel id="personRegister" header="#{msg.dataRegisterPerson}" style="width:100%;no-border">
+							<div align="center">	
+								<p:panelGrid id="personRegisterGrid" style="no-border" columns="2" cellpadding="5">
+									<p:outputLabel value="#{msg.documentTye}" for="tpdoc"/>
+									<p:selectOneMenu id="tpdoc" styleClass="texto" style="witdh:150px;" value="#{prin.newPerson.documentTypeID}">
+										<f:selectItems value="#{prin.typesDocuments}" var="tp" 
+												itemLabel="#{tp.description}" itemValue="#{tp.documentTypeID}"></f:selectItems>
+									</p:selectOneMenu>
+									<p:outputLabel value="#{msg.document}" for="doc"/>
+									<p:inputText id="doc" value="#{prin.newPerson.document}" styleClass="texto" style="witdh:150px;"/>
+									<p:outputLabel value="#{msg.firstName}" for="nom1"/>
+									<p:inputText id="nom1" value="#{prin.newPerson.firstName}"  style="witdh:150px;" styleClass="texto"/>
+									<p:outputLabel value="#{msg.middleName}" for="nom2"/>
+									<p:inputText id="nom2" value="#{prin.newPerson.middleName}"  style="witdh:150px;" styleClass="texto"/>
+									<p:outputLabel value="#{msg.lastName}" for="nom3"/>
+									<p:inputText id="nom3" value="#{prin.newPerson.lastName}"  style="witdh:150px;" styleClass="texto"/>
+									<p:outputLabel value="#{msg.lastName2}" for="nom4"/>
+									<p:inputText id="nom4" value="#{prin.newPerson.lastName2}"  style="witdh:150px;" styleClass="texto"/>
+									<p:outputLabel value="#{msg.brithday}" for="bhday"/>
+									<p:calendar id="bhday" value="#{prin.newPerson.birthday}" pattern="dd-MM-yyyy" style="witdh:150px;" mask="true"/>
+									<p:outputLabel value="#{msg.birthplace}" for="bp"/>
+									<p:selectOneMenu id="bp" styleClass="texto" style="witdh:150px;" value="#{prin.newPerson.cityID}">
+										<f:selectItems value="#{prin.listCities}" var="ct" 
+												itemLabel="#{ct.cityName}" itemValue="#{ct.cityID}"></f:selectItems>
+									</p:selectOneMenu>
+									<p:outputLabel value="#{msg.height}" for="hei"/>
+									<p:inputNumber id="hei" value="#{prin.newPerson.height}"  style="witdh:150px;" styleClass="texto"/>
+									<p:outputLabel value="#{msg.phone}" for="pho"/>
+									<p:inputMask id="pho" value="#{prin.phone}" mask="9999999999"/>
+									<p:outputLabel value="#{msg.email}" for="mail"/>
+									<p:inputText id="mail" value="#{prin.newPerson.email}" styleClass="texto" style="witdh:150px;"/>
+									<p:outputLabel value="#{msg.rhBlood}" for="rh"/>
+									<p:selectOneMenu id="rh" styleClass="texto" style="witdh:150px;" value="#{prin.newPerson.rhBlood}">
+										<f:selectItems value="#{prin.rhlist}" var="r" 
+												itemLabel="#{r.desc}" itemValue="#{r.id}"></f:selectItems>
+									</p:selectOneMenu>
+									<p:outputLabel value="#{msg.gender}" for="gen"/>
+									<p:selectOneRadio id="gen" value="#{prin.newPerson.gender}" unselectable="true">
+										<f:selectItem itemLabel="Female" itemValue="female"/>
+										<f:selectItem itemLabel="Male" itemValue="male"/>
+										<f:selectItem itemLabel="Other" itemValue="other"/>
+									</p:selectOneRadio>
+								</p:panelGrid>
+								<div align="center">
+									<p:commandButton value="#{msg.btnCreate}" actionListener="#{prin.createPerson()}" update="@form" ajax="false"/>
+								</div>
+							</div>
+						</p:panel>
+					</p:tab>
+					<p:tab id="dataTemperature" title="#{msg.dataTemp}">
+						<p:panel id="personTemperature" header="#{msg.dateRegisyterTemp}" style="width:100%;no-border">
+							<div align="center">
+									<p:outputLabel value="#{msg.document}" for="doc"/>
+									<p:inputText id="doc" value="#{prin.newPerson.document}" styleClass="texto" style="witdh:150px;"/>
+									<div align="center">
+										<p:commandButton value="#{msg.btnSearch}" actionListener="#{regis.validatePerson()}" update="datareg" ajax="false"/>
+									</div>
+									<p:panel id="datareg" style="width:100%;no-border" visible="#{regis.visiblePanel}">
+										<p:outputLabel value="#{msg.weight}" for="hei"/>
+										<p:inputNumber id="hei" value="#{prin.newPerson.weight}"  style="witdh:150px;" styleClass="texto"/>
+										<p:outputLabel value="#{msg.temperature}" for="hei"/>
+										<p:inputNumber id="hei" value="#{prin.newPerson.height}"  style="witdh:150px;" styleClass="texto"/>
+									</p:panel>
+							</div>
+						</p:panel>
+					</p:tab>
+				</p:wizard>
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

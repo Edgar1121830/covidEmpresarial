@@ -1,0 +1,5 @@
+A continuación, se pedirán los datos personales, de contacto y los del tamizaje. 
+En el tamizaje, se procederá tomar la temperatura y el peso de la persona. 
+Si la persona tiene una temperatura igual o superior a 37.5° C no se permitirá el ingreso y se registra la novedad. 
+De otra parte, el sistema calcula la masa corporal (género, estatura, y peso registrado en la báscula), 
+para determinar si la persona cuenta con sobrepeso; si es así, se le negará el ingreso.

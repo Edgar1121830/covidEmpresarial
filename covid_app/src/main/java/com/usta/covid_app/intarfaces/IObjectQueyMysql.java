@@ -73,4 +73,12 @@ public interface IObjectQueyMysql<T> {
 	 */
 	public T requiredPass(String user) throws Exception;
 	
+	/**
+	 * busca persona por el numero de documento
+	 * @param documento
+	 * @return
+	 * @throws Exception
+	 */
+	public T searchPersonByDocument(String documento) throws Exception;
+	
 }

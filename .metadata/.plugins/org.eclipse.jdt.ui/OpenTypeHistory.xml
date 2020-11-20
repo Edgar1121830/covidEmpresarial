@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-<typeInfo handle="=covid_app/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.covid_app.bean{DaoObjectMySql.java[DaoObjectMySql" modifiers="1" timestamp="1601910256000"/>
-<typeInfo handle="=covidapp_postgres/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_postgres.model{LoginPostgres.java[LoginPostgres" modifiers="1" timestamp="1601910037000"/>
-<typeInfo handle="=CMAPP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.cmapp.control{LoginController.java[LoginController" modifiers="1" timestamp="1602789784000"/>
+<typeInfo handle="=covid_app/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.covid_app.bean{DaoObjectMySql.java[DaoObjectMySql" modifiers="1" timestamp="1604932700000"/>
+<typeInfo handle="=covidapp_postgres/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_postgres.model{LoginPostgres.java[LoginPostgres" modifiers="1" timestamp="1603466823000"/>
+<typeInfo handle="=CMAPP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.cmapp.control{LoginController.java[LoginController" modifiers="1" timestamp="1605814232000"/>
+<typeInfo handle="=covidapp_mysql/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_mysql.model{TypeDocument.java[TypeDocument" modifiers="1" timestamp="1604933227000"/>
+<typeInfo handle="=CMAPP/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.usta.cmapp.control{PrincipalController.java[PrincipalController" modifiers="1" timestamp="1605817636000"/>
+<typeInfo handle="=covidapp_mysql/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_mysql.model{Disease.java[Disease" modifiers="1" timestamp="1604933448000"/>
+<typeInfo handle="=covidapp_mysql/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.covidapp_mysql.model{Company.java[Company" modifiers="1" timestamp="1604936652000"/>
 </typeInfoHistroy>

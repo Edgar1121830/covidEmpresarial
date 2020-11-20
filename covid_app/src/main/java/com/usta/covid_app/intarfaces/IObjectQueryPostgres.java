@@ -64,4 +64,12 @@ public interface IObjectQueryPostgres<T> {
 	 * @throws Exception
 	 */
 	public T requiredPass(String user) throws Exception;
+	
+	/**
+	 * busca persona por el numero de documento
+	 * @param documento
+	 * @return
+	 * @throws Exception
+	 */
+	public T searchPersonByDocument(String documento) throws Exception;
 }

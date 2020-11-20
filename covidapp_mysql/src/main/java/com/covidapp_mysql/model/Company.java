@@ -13,6 +13,7 @@ import java.math.BigInteger;
  * 
  */
 @Entity
+@Table(name = "company")
 public class Company implements Serializable {
 	private static final long serialVersionUID = 1L;public static final String FIND_ALL = "Company.FIND_ALL";
 	

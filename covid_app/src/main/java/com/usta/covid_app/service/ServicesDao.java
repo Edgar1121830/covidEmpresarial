@@ -49,17 +49,17 @@ public class ServicesDao<T> {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<T> findAll(Class<T> t, int db) throws Exception {
+	public List<T> findAll(T t, int db) throws Exception {
 		
 		List<T> object = new ArrayList<T>();
 		
 		switch (db) {
 		case 1:// persite Mysql
-			object = mysqlDao.findAll(t);
+			object = mysqlDao.findAll((Class<T>) t);
 			break;
 
 		case 2:// periste Postgresql
-			object = postgresDao.findAll(t);
+			object = postgresDao.findAll((Class<T>) t);
 			break;
 		}
 
@@ -166,6 +166,20 @@ public class ServicesDao<T> {
 			break;
 	}
 		
+		return t;
+	}
+	
+	public T searchPersonByDocument(String document, int bd) throws Exception{
+		T t = null;
+		switch (bd) {
+			case 1:
+				t = mysqlDao.searchPersonByDocument(document);
+				break;
+				
+			case 2:
+				t = postgresDao.searchPersonByDocument(document);
+				break;
+		}
 		return t;
 	}
 

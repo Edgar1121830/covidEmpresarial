@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="postg"/>
+		<item key="selection" value="prin."/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="pesoncontroller."/>
+			<item value="principal."/>
+			<item value="/*setter and getter*/&#x0A;&#x09;public String getUserAcces() {&#x0A;&#x09;&#x09;return userAcces;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public void setUserAcces(String userAcces) {&#x0A;&#x09;&#x09;this.userAcces = userAcces;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public Person getNewPerson() {&#x0A;&#x09;&#x09;return newPerson;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public void setNewPerson(Person newPerson) {&#x0A;&#x09;&#x09;this.newPerson = newPerson;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public List&lt;TypeDocument&gt; getTypesDocuments() {&#x0A;&#x09;&#x09;return typesDocuments;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public void setTypesDocuments(List&lt;TypeDocument&gt; typesDocuments) {&#x0A;&#x09;&#x09;this.typesDocuments = typesDocuments;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public List&lt;City&gt; getListCities() {&#x0A;&#x09;&#x09;return listCities;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public void setListCities(List&lt;City&gt; listCities) {&#x0A;&#x09;&#x09;this.listCities = listCities;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public List&lt;EnumRhBlood&gt; getRhlist() {&#x0A;&#x09;&#x09;return rhlist;&#x0A;&#x09;}&#x0A;&#x0A;&#x09;public void setRhlist(List&lt;EnumRhBlood&gt; rhlist) {&#x0A;&#x09;&#x09;this.rhlist = rhlist;&#x0A;&#x09;}&#x0A;&#x09;"/>
+			<item value="TypeDocument.FIND_ALL"/>
+			<item value="tipo"/>
 			<item value="postg"/>
 			<item value="EmpresaLogin"/>
 			<item value="Login"/>
@@ -18,10 +23,10 @@
 			<item value="mysqlentity"/>
 			<item value="datasour"/>
 			<item value="datasor"/>
-			<item value="datasource"/>
-			<item value="data"/>
 		</list>
 		<list key="replacehistory">
+			<item value="prin."/>
+			<item value="pesoncontroller."/>
 			<item value="postgresEnetity"/>
 		</list>
 	</section>

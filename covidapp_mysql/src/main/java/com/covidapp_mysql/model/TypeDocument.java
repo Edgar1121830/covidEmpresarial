@@ -9,6 +9,7 @@ import javax.persistence.*;
  * 
  */
 @Entity
+@Table(name = "documenttype")
 public class TypeDocument implements Serializable {
 	private static final long serialVersionUID = 1L;
 

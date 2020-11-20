@@ -11,10 +11,13 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name = "person")
 public class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public static final String FIND_ALL= "Person.FIND_ALL";
+	public static final String FIND_BY_DOCUMENT= "Person.FIND_BY_DOCUMENT";
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

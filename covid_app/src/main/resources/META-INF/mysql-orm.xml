@@ -90,4 +90,12 @@
 		</query>
 	</named-query>
 	
+	<named-query name="Person.FIND_BY_DOCUMENT">
+		<query>
+		 	SELECT p
+		 	FROM Person p
+		 	WHERE p.document = :doc
+		</query>
+	</named-query>
+	
 </entity-mappings>

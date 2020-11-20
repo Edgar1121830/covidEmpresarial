@@ -14,6 +14,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import com.covidapp_mysql.model.Login;
+import com.covidapp_mysql.model.Person;
 import com.usta.covid_app.intarfaces.IObjectQueyMysql;
 
 /**
@@ -99,6 +100,20 @@ public class DaoObjectMySql<T> implements IObjectQueyMysql<T>{
 		try {
 			t = (T) q.getSingleResult();
 		} catch (NoResultException e) {
+			t = null;
+		}
+		
+		return t;
+	}
+
+	@Override
+	public T searchPersonByDocument(String documento) throws Exception {
+		T t = null;
+		Query q = mysqlentity.createNamedQuery(Person.FIND_BY_DOCUMENT);
+		q.setParameter("doc", documento);
+		try {
+			t = (T) q.getSingleResult();
+		} catch (Exception e) {
 			t = null;
 		}
 		

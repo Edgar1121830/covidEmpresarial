@@ -1,0 +1,29 @@
+package com.usta.cmapp.control;
+
+import java.io.Serializable;
+import java.util.Properties;
+
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedBean;
+
+import com.usta.covid_app.service.ServicesDao;
+
+@ManagedBean(name = "regis")
+@SessionScoped
+public class RegisterController implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private Properties properties;
+	
+	@EJB
+	private ServicesDao<Object> servicesDao;
+
+	public RegisterController() {
+		super();
+	}
+	
+	
+
+}

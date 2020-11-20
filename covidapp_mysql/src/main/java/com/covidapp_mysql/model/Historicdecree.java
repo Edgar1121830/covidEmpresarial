@@ -10,6 +10,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name = "historicdecree")
 public class Historicdecree implements Serializable {
 	private static final long serialVersionUID = 1L;
 	

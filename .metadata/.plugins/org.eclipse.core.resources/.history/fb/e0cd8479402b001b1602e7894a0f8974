@@ -1,0 +1,52 @@
+package com.usta.cmapp.control;
+
+import java.io.Serializable;
+import java.util.Properties;
+
+import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+
+import com.covidapp_mysql.model.Register;
+import com.usta.covid_app.service.ServicesDao;
+
+@ManagedBean(name = "regis")
+@SessionScoped
+public class RegisterController implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	private Properties properties;
+	private Register registerPerson;
+	private String userAcces;
+	private String usLoged;
+	
+	@EJB
+	private ServicesDao<Object> servicesDao;
+
+	public RegisterController() {
+		properties = new Properties(); 
+		userAcces = null;
+		registerPerson = new Register();
+		chargeProperties();
+	}
+	
+	/**
+	 * init variables 
+	 */
+	private void chargeProperties() {
+		try {
+			properties.load(RegisterController.class.getResourceAsStream("messages.properties"));
+			userAcces = ((String) FacesContext.getCurrentInstance().getExternalContext()
+					.getSessionMap().get(LoginController.USER_AUTENTICH)).toUpperCase();
+			usLoged=((String)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get(LoginController.AUTH_KEY)).toUpperCase();
+		} catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null, 
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, properties.getProperty("errorGeneral")
+							, properties.getProperty("errorCargaPropiedades")));
+		}
+	}
+
+}

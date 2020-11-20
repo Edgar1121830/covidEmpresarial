@@ -10,6 +10,7 @@ import java.util.Date;
  * 
  */
 @Entity
+@Table(name = "register")
 public class Register implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
